@@ -11,7 +11,7 @@ class Neighborhood():
         self.similarity_function = similarity_function
         similarities = dict(
             [(itemId, similarity_function.get_similarity(self.itemId, itemId))
-             for itemId in all_items])
+             for itemId in all_items if itemId != self.itemId])
         if size is not None:
             sorter = [(similarity, itemId) for itemId, similarity in similarities.iteritems()]
             sorter.sort()
